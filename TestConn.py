@@ -2,16 +2,16 @@ import pyodbc
 # Some other example server values are
 # server = 'localhost\sqlexpress' # for a named instance
 # server = 'myserver,port' # to specify an alternate port
-server = 'XXXX.database.windows.net' 
+server = 'mysqlserver619.database.windows.net' 
 database = 'mySampleDatabase' 
-username = 'XXXXX' 
-password = 'XXXXX' 
+username = 'azureuser' 
+password = 'India123@' 
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 
 #Sample select query
 #cursor.execute("SELECT @@version;") 
-#cursor.execute("SELECT TOP 3 name, collation_name FROM sys.databases")
+cursor.execute("SELECT TOP 3 name, collation_name FROM sys.databases")
 cursor.execute("SELECT * FROM [SalesLT].[Product];") 
 row = cursor.fetchone() 
 while row: 
